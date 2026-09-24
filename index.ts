@@ -1,37 +1,10 @@
-//public / private Modifiers 
-class Car {
-    // public color: string;
-    // private year: number;
+const Component = (target: any) => { 
+console.log(target);
 
-    constructor(public color: string, private year: number) {
-        this.color = color;
-        this.year = year;
-    }
-    // color = 'blue';
-    // year = 2026;
-    public drive() {
-        // console.log(`The ${this.color} car from ${this.year} is driving.`);
-        // console.log(this.year);
-        this.putInGear();
-        this.pressPedal();
-        this.turnWheel();
-    }
+};
 
-    private putInGear() {
-        
-    }
-    
-    private pressPedal() {
+@Component
+class Car {}
 
-    }
-    
-    private turnWheel() {
-
-    }
-}
-
-const myCar = new Car('Silver', 2000);
-myCar.drive();
-// console.log('color: '+ myCar.color+ ', year: '+ myCar.year);
-
-// myCar.putInGear(); // Error: Property 'putInGear' is private and only accessible within class 'Car'.
+//Component doesn't get called a second time because decorators are only called once when the class is defined.
+new Car();
