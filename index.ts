@@ -1,21 +1,25 @@
-interface Driveable {
-    speed: number;
-    drive(): string;
+class NumberHolder {
+    value: number;
+}
+class StringHolder {
+    value: string;
+}
+class BooleanHolder {
+    value: boolean;
 }
 
-class car implements Driveable {
-    speed = 10;
-
-    drive() {
-        return `I am driving at ${this.speed}`;
-        
-    }
+class ValueHolder<TypeForValueProperty> {
+    value: TypeForValueProperty;
+    //generic class can be used to create a class that can hold any type of value, and the type of the value can be specified when creating an instance of the class. This allows for greater flexibility and reusability of the class, as it can be used to hold different types of values without having to create separate classes for each type.
 }
 
-const myCar = new car();
+const numberHolder = new ValueHolder<number>();
 
-const startDriving = (vehicle: Driveable) => {
-    vehicle.drive();
-};
+// const booleanHolder = new BooleanHolder();
+// booleanHolder.value = true;
 
-startDriving(myCar);
+// const numberHolder = new NumberHolder();
+// numberHolder.value = 42;
+
+// const stringHolder = new StringHolder();
+// stringHolder.value = "Hello, World!";
