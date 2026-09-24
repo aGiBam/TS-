@@ -1,25 +1,21 @@
-class NumberHolder {
-    value: number;
-}
-class StringHolder {
-    value: string;
-}
-class BooleanHolder {
-    value: boolean;
+class ValueHolder<T> {
+    value: T;
 }
 
-class ValueHolder<TypeForValueProperty> {
-    value: TypeForValueProperty;
-    //generic class can be used to create a class that can hold any type of value, and the type of the value can be specified when creating an instance of the class. This allows for greater flexibility and reusability of the class, as it can be used to hold different types of values without having to create separate classes for each type.
+const numberWrapper = (value: number) : number[] => {
+    return [value];
 }
 
-const numberHolder = new ValueHolder<number>();
+const stringWrapper = (value: string) : string[] => {
+    return [value];
+}
 
-// const booleanHolder = new BooleanHolder();
-// booleanHolder.value = true;
+const booleanWrapper = (value: boolean) : boolean[] => {
+    return [value];
+}
 
-// const numberHolder = new NumberHolder();
-// numberHolder.value = 42;
+const valueWrapper = <T>(value: T) : T[] => {
+    return [value];
+}
 
-// const stringHolder = new StringHolder();
-// stringHolder.value = "Hello, World!";
+valueWrapper<number>(14); // [14]
