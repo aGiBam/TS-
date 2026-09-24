@@ -1,12 +1,18 @@
-interface PostGateKeeper {
-  title: string;
-  daysOld: number;
-  published: boolean;
-}
-//interface -> describe the structure of an object, defining the properties and their types.
+class Car {
+    color: string;
+    year: number;
 
-const Post: PostGateKeeper = {
-    title: "Understanding TypeScript Interfaces",
-    daysOld: 5,
-    published: true
-};
+    constructor(color: string, year: number) {
+        this.color = color;
+        this.year = year;
+    }
+    // color = 'blue';
+    // year = 2026;
+    drive() {
+        console.log(`The ${this.color} car from ${this.year} is driving.`);
+    }
+}
+
+const myCar = new Car('Silver', 2000);
+myCar.drive();
+console.log('color: '+ myCar.color+ ', year: '+ myCar.year);
